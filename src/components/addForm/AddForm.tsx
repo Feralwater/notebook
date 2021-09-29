@@ -11,6 +11,12 @@ const AddForm: React.VFC<AddFormPropsType> = ({addNote}) => {
     const [title, setTitle] = useState<string>("");
     const [text, setText] = useState<string>("");
     const [error, setError] = useState<string | null>(null);
+    const [tags, setTags] = useState<Set<string>>(new Set());
+
+    function addTag(text: string) {
+        const noteTags = text.match(/#\S*/ig)
+        noteTags && noteTags.map(el => tags.add(el)) && setTags(tags);
+    }
 
     return (
         <>
@@ -27,6 +33,7 @@ const AddForm: React.VFC<AddFormPropsType> = ({addNote}) => {
                     addNote(title, text);
                     setTitle("");
                     setText("");
+                    addTag(text);
                     setError(null);
                 } else {
                     setError("Fill all fields");
@@ -34,6 +41,7 @@ const AddForm: React.VFC<AddFormPropsType> = ({addNote}) => {
             }}
             >Add</Button>
             {error && <div>{error}</div>}
+            <div>{Array.from(tags).map(t => <span>{t} </span>)}</div>
         </>
     );
 };

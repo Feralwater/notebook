@@ -11,7 +11,9 @@ type NotePropsType = {
     changeNoteText: (id: string, newText: string) => void
 }
 
-const Note: React.VFC<NotePropsType> = ({notes, removeNote, changeNoteTitle, changeNoteText}) => {
+const Note: React.VFC<NotePropsType> = (
+    {notes, removeNote, changeNoteTitle, changeNoteText}
+) => {
 
     return (
         <div>
@@ -30,7 +32,7 @@ const Note: React.VFC<NotePropsType> = ({notes, removeNote, changeNoteTitle, cha
                                 onChange={onChangeTitleHandler}
                             />
                         </div>
-                        <div>t
+                        <div>
                             <EditableText text={n.text} onChange={onChangeTextHandler}/>
                         </div>
                         <Button onClick={() => removeNote(n.id)}>x</Button>

@@ -28,6 +28,7 @@ function App() {
             setNotes([...notes]);
         }
     }
+
     function changeNoteText(id: string, newText: string) {
         const note = notes.find(n => n.id === id);
         if (note) {
@@ -35,6 +36,7 @@ function App() {
             setNotes([...notes]);
         }
     }
+
     return (<>
             <AddForm addNote={addNote}/>
             <Note notes={notes}
