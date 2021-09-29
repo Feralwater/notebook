@@ -21,10 +21,26 @@ function App() {
         setNotes(notes.filter(n => n.id !== id));
     }
 
+    function changeNoteTitle(id: string, newTitle: string) {
+        const note = notes.find(n => n.id === id);
+        if (note) {
+            note.title = newTitle;
+            setNotes([...notes]);
+        }
+    }
+    function changeNoteText(id: string, newText: string) {
+        const note = notes.find(n => n.id === id);
+        if (note) {
+            note.text = newText;
+            setNotes([...notes]);
+        }
+    }
     return (<>
             <AddForm addNote={addNote}/>
             <Note notes={notes}
                   removeNote={removeNote}
+                  changeNoteTitle={changeNoteTitle}
+                  changeNoteText={changeNoteText}
             />
         </>
     );

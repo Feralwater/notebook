@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 
 type TitlePropsType = {
     title: string
@@ -12,13 +12,11 @@ const Title: React.VFC<TitlePropsType> = ({title, setTitle}) => {
     }
 
     return (
-        <div>
-            <input type="text"
-                   value={title}
-                   onChange={onChangHandler}
-                   placeholder={"Enter title"}
-            />
-        </div>
+        <input type="text"
+               value={title}
+               onChange={onChangHandler}
+               placeholder={"Enter title"}
+        />
     );
 };
 
