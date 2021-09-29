@@ -20,7 +20,20 @@ const AddForm: React.VFC<AddFormPropsType> = ({addNote}) => {
             <NoteText text={text}
                       setText={setText}
             />
-            <Button onClick={() => addNote(title, text)}>Add</Button>
+            <Button onClick={() => {
+                const newTitle = title.trim();
+                const newText = text.trim();
+                if (newTitle !== "" && newText !== "") {
+                    addNote(title, text);
+                    setTitle("");
+                    setText("");
+                    setError(null);
+                } else {
+                    setError("Fill all fields");
+                }
+            }}
+            >Add</Button>
+            {error && <div>{error}</div>}
         </>
     );
 };
