@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Note from "./components/note/Note";
+import AddForm from "./components/addForm/AddForm";
 
 function App() {
-    return (
-        <>
+    return (<>
+            <AddForm/>
+            <Note/>
         </>
     );
 }
