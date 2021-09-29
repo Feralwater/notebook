@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Button: React.FC = ({children}) => {
+type PropsButtonType = {
+    onClick: () => void
+    // disabled: boolean
+}
+
+const Button: React.FC<PropsButtonType> = ({children, onClick}) => {
     return (
-        <button>
+        <button onClick={onClick}>
             {children}
         </button>
     );
