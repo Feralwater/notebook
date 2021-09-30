@@ -7,7 +7,6 @@
     top: 0;
     padding: calc(.5rem * 0.4) calc(.5rem * .5);
     margin: calc(.5rem * 0.75 + 3px) calc(.5rem * .5);
-    background: #a2cf70 radial-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .5));
     white-space: nowrap;
     border-radius: 8px;
     transform: translate(0, 0);
@@ -24,7 +23,6 @@
     display: block;
     width: 100%;
     border: 1px solid rgb(128, 161, 103);
-    padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
     color: hsl(88, 70%, 30%);
     font-size: 16px;
     background: transparent;

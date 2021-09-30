@@ -34,9 +34,13 @@ const AddForm: React.VFC<AddFormPropsType> = ({addNote, changeFilter}) => {
             setError("Fill all fields");
         }
     }
+    const reset = () => {
+        setTitle("");
+        setText("");
+    }
 
     return (
-        <div className={style.container}>
+        <form className={style.container}>
             <Title title={title}
                    setTitle={setTitle}
             />
@@ -45,13 +49,15 @@ const AddForm: React.VFC<AddFormPropsType> = ({addNote, changeFilter}) => {
             />
             <Button onClick={getOnClick}
             >Add</Button>
+            <Button onClick={reset}
+            >Reset</Button>
             {error && <div>{error}</div>}
             <div>{Array.from(tags).map(t =>
                 <span key={v1()}
                       onClick={changeFilter}
                 >{t} </span>)}
             </div>
-        </div>
+        </form>
     );
 };
 
