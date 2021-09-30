@@ -5,9 +5,10 @@ import s from "./NoteText.module.scss"
 type NoteTextPropsType = {
     text: string
     setText: (text: string) => void
+    error: boolean
 }
 
-const NoteText: React.VFC<NoteTextPropsType> = ({text, setText}) => {
+const NoteText: React.VFC<NoteTextPropsType> = ({text, setText, error}) => {
 
     const onChangHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setText(e.currentTarget.value)
@@ -15,7 +16,7 @@ const NoteText: React.VFC<NoteTextPropsType> = ({text, setText}) => {
     return (
         <label className={style.input}>
             <textarea value={text}
-                      className={style.input__field + " " + s.input__field}
+                      className={error ? style.input__field + " " + s.input__field + " " + style.error : style.input__field + " " + s.input__field}
                       onChange={onChangHandler}
                       placeholder=" "
             />

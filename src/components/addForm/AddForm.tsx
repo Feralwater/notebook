@@ -13,7 +13,7 @@ type AddFormPropsType = {
 const AddForm: React.VFC<AddFormPropsType> = ({addNote, changeFilter}) => {
     const [title, setTitle] = useState<string>("");
     const [text, setText] = useState<string>("");
-    const [error, setError] = useState<string | null>(null);
+    const [error, setError] = useState<boolean>(false);
     const [tags, setTags] = useState<Set<string>>(new Set());
 
     function addTag(text: string) {
@@ -29,9 +29,9 @@ const AddForm: React.VFC<AddFormPropsType> = ({addNote, changeFilter}) => {
             setTitle("");
             setText("");
             addTag(text);
-            setError(null);
+            setError(false);
         } else {
-            setError("Fill all fields");
+            setError(true);
         }
     }
     const reset = () => {
@@ -40,24 +40,27 @@ const AddForm: React.VFC<AddFormPropsType> = ({addNote, changeFilter}) => {
     }
 
     return (
-        <form className={style.container}>
-            <Title title={title}
-                   setTitle={setTitle}
-            />
-            <NoteText text={text}
-                      setText={setText}
-            />
-            <Button onClick={getOnClick}
-            >Add</Button>
-            <Button onClick={reset}
-            >Reset</Button>
-            {error && <div>{error}</div>}
+        <>
+            <div className={style.container}>
+                <Title title={title}
+                       setTitle={setTitle}
+                       error={error}
+                />
+                <NoteText text={text}
+                          setText={setText}
+                          error={error}
+                />
+                <Button onClick={getOnClick}
+                >Add</Button>
+                <Button onClick={reset}
+                >Reset</Button>
+            </div>
             <div>{Array.from(tags).map(t =>
                 <span key={v1()}
                       onClick={changeFilter}
                 >{t} </span>)}
             </div>
-        </form>
+        </>
     );
 };
 
