@@ -1,0 +1,36 @@
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  padding: calc(4 * .5rem);
+  margin-top: calc(4 * .5rem);
+  border-radius: 8px;
+  border: 1px solid rgb(128, 161, 103);
+  box-shadow: inset rgba(255, 255, 255, .6) 0 .3em .3em,
+  inset rgba(0, 0, 0, .2) 0 -.1em .3em,
+  rgb(128, 161, 103) 0 7px 1px,
+  rgba(0, 0, 0, .2) 0 .5em 5px;
+
+  &__note {
+    //display: flex;
+    //flex-direction: column;
+    max-width: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    flex: 1 1 300px;
+    padding: calc(4 * .5rem);
+    border-radius: 8px;
+    margin: 15px;
+    background: #f3f3f3;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    &:after {
+      content: "📌";
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+
+}

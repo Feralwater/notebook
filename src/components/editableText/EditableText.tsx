@@ -1,4 +1,5 @@
 import React, {KeyboardEvent, useState} from 'react';
+import style from "./EditableText.module.scss"
 
 type EditableTitlePropsType = {
     text: string
@@ -28,7 +29,11 @@ const EditableText: React.VFC<EditableTitlePropsType> = ({text, onChange}) => {
                     autoFocus
                     onChange={(e) => setNoteText(e.currentTarget.value)}
                     onKeyPress={onKeyPressHandler}
+                    className={style.edit}
         />
-        : <span onDoubleClick={activateEditMode}>{text}</span>
+        : <span
+            onDoubleClick={activateEditMode}
+            className={style.text}
+        >{text}🖋</span>
 }
 export default EditableText;

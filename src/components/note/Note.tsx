@@ -3,6 +3,7 @@ import {NotesType} from "../../App";
 import Button from "../button/Button";
 import EditableTitle from "../editableTitle/EditableTitle";
 import EditableText from "../editableText/EditableText";
+import style from "./Note.module.scss"
 
 type NotePropsType = {
     notes: Array<NotesType>
@@ -18,7 +19,7 @@ const Note: React.VFC<NotePropsType> = (
     const notesFiltered = notes.filter(n => n.text.includes(filter.trim()));
 
     return (
-        <div>
+        <div className={style.card}>
             {notesFiltered.map(n => {
                 const onChangeTitleHandler = (newValue: string) => {
                     changeNoteTitle(n.id, newValue);
@@ -27,7 +28,7 @@ const Note: React.VFC<NotePropsType> = (
                     changeNoteText(n.id, newValue);
                 }
                 return (
-                    <div key={n.id}>
+                    <div key={n.id} className={style.card__note}>
                         <div>
                             <EditableTitle
                                 title={n.title}

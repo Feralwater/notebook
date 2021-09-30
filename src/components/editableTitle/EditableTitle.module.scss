@@ -1,0 +1,17 @@
+.title {
+  display: inline-block;
+  text-transform: capitalize;
+  margin: 0 0 10px 0;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.edit {
+  border-radius: 8px;
+  display: inline-block;
+  height: 30px;
+  width: 100%;
+  outline: none;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
