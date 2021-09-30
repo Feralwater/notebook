@@ -13,6 +13,13 @@ function App() {
     const [notes, setNotes] = useState<Array<NotesType>>([]);
     const [filter, setFilter] = useState<string>("")
 
+    // async function createFile(filename: string) {
+    //     const blob = new Blob([JSON.stringify(notes)], {type: "text/json"});
+    //     const notesFromFile = JSON.parse(await blob.text());
+    // }
+    //
+    // createFile("data.txt")
+
     function addNote(title: string, text: string) {
         const note: NotesType = {id: v1(), title: title, text: text};
         setNotes([{...note}, ...notes]);
