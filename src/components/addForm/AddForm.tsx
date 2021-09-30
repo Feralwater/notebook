@@ -55,10 +55,12 @@ const AddForm: React.VFC<AddFormPropsType> = ({addNote, changeFilter}) => {
                 <Button onClick={reset}
                 >Reset</Button>
             </div>
-            <div>{Array.from(tags).map(t =>
-                <span key={v1()}
-                      onClick={changeFilter}
-                >{t} </span>)}
+            <div className={style.container__tags}>
+                {Array.from(tags).map(t =>
+                    <span key={v1()}
+                          onClick={changeFilter}
+                          className={style.container__tags_tag}
+                    >{t} </span>)}
             </div>
         </>
     );

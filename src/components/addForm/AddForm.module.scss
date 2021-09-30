@@ -8,4 +8,16 @@
   inset rgba(0, 0, 0, .2) 0 -.1em .3em,
   rgb(128, 161, 103) 0 7px 1px,
   rgba(0, 0, 0, .2) 0 .5em 5px;
+
+  &__tags {
+    padding: calc(4 * .5rem);
+    margin-top: calc(4 * .5rem);
+    border-radius: 8px;
+
+    &_tag {
+      color: blue;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
 }
