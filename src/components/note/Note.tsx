@@ -9,15 +9,17 @@ type NotePropsType = {
     removeNote: (id: string) => void
     changeNoteTitle: (id: string, newTitle: string) => void
     changeNoteText: (id: string, newText: string) => void
+    filter: string
 }
 
 const Note: React.VFC<NotePropsType> = (
-    {notes, removeNote, changeNoteTitle, changeNoteText}
+    {notes, removeNote, changeNoteTitle, changeNoteText, filter}
 ) => {
+    const notesFiltered = notes.filter(n => n.text.includes(filter.trim()));
 
     return (
         <div>
-            {notes.map(n => {
+            {notesFiltered.map(n => {
                 const onChangeTitleHandler = (newValue: string) => {
                     changeNoteTitle(n.id, newValue);
                 }

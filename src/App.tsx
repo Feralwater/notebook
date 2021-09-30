@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {MouseEvent, useState} from 'react';
 import Note from "./components/note/Note";
 import AddForm from "./components/addForm/AddForm";
 import {v1} from 'uuid';
@@ -6,11 +6,12 @@ import {v1} from 'uuid';
 export type NotesType = {
     id: string,
     title: string,
-    text: string
+    text: string,
 }
 
 function App() {
     const [notes, setNotes] = useState<Array<NotesType>>([]);
+    const [filter, setFilter] = useState<string>("")
 
     function addNote(title: string, text: string) {
         const note: NotesType = {id: v1(), title: title, text: text};
@@ -37,12 +38,17 @@ function App() {
         }
     }
 
+    function changeFilter(e: MouseEvent<HTMLSpanElement>) {
+        setFilter(e.currentTarget.innerText)
+    }
+
     return (<>
-            <AddForm addNote={addNote}/>
+            <AddForm addNote={addNote} changeFilter={changeFilter}/>
             <Note notes={notes}
                   removeNote={removeNote}
                   changeNoteTitle={changeNoteTitle}
                   changeNoteText={changeNoteText}
+                  filter={filter}
             />
         </>
     );
