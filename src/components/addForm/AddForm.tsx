@@ -50,9 +50,11 @@ const AddForm: React.VFC<AddFormPropsType> = ({addNote, changeFilter}) => {
                           setText={setText}
                           error={error}
                 />
-                <Button onClick={getOnClick}
+                <Button className={"btn"}
+                        onClick={getOnClick}
                 >Add</Button>
-                <Button onClick={reset}
+                <Button className={"btn"}
+                        onClick={reset}
                 >Reset</Button>
             </div>
             <div className={style.container__tags}>

@@ -3,14 +3,15 @@ import style from "./Button.module.scss"
 
 type PropsButtonType = {
     onClick: () => void
+    className: string
 }
 
 const Button: React.FC<PropsButtonType> = (
-    {children, onClick}
+    {children, onClick, className}
 ) => {
     return (
         <button onClick={onClick}
-                className={style.btn}
+                className={style[className]}
         >
             {children}
         </button>

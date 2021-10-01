@@ -38,7 +38,9 @@ const Note: React.VFC<NotePropsType> = (
                         <div>
                             <EditableText text={n.text} onChange={onChangeTextHandler}/>
                         </div>
-                        <Button onClick={() => removeNote(n.id)}>x</Button>
+                        <Button className={"delete"}
+                            onClick={() => removeNote(n.id)}
+                        >x</Button>
                     </div>
                 )
             })}
